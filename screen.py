@@ -139,3 +139,5 @@ print_blast_hit_table(blastx_record, query_length=len(SEQUENCE))
 print("=" * 70)
 print("Done. (Network visualization step skipped for this run.)")
 print("=" * 70)
+
+# %%
