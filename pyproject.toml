@@ -8,6 +8,7 @@ dependencies = [
     "bm25s>=0.3.11",
     "datasets>=5.0.1",
     "google-adk>=2.9.2",
+    "httpx>=0.28.1",
     "langfuse>=4.15.4",
     "langgraph>=1.2.12",
     "mcp>=2.2.0",
