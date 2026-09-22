@@ -82,7 +82,9 @@ def main():
     print("\n" + report)
 
     Path("results").mkdir(exist_ok=True)
-    Path("results/day1_rows.jsonl").write_text(
+    # Per-label filename, NOT a fixed one -- otherwise each run overwrites the
+    # last and you cannot compare Day 2's configs against Day 1's baseline.
+    Path(f"results/{args.label}_rows.jsonl").write_text(
         "\n".join(json.dumps(r) for r in rows))
     Path(f"results/{args.label}.md").write_text(
         f"# {args.label}\n\n"
@@ -99,8 +101,9 @@ def main():
             f"{o['accuracy']:.3f} |\n"
         )
 
-    print("\nwrote results/day1_rows.jsonl -- now go read 10 failures by hand:")
-    print("  python inspect_failures.py")
+    print(f"\nwrote results/{args.label}_rows.jsonl")
+    print(f"  python inspect_failures.py --label {args.label}")
+    print(f"  python bucket.py --label {args.label}")
 
 
 if __name__ == "__main__":
